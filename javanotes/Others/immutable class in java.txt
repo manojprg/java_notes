@@ -101,15 +101,6 @@ Initialize all the fields via a constructor performing deep copy.
 Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
 To understand points 4 and 5, let’s run the sample Final class that works well and values don’t get altered after instantiation.
 
-
-FinalClassExample.java
-
-
-package com.journaldev.java;
-
-import java.util.HashMap;
-import java.util.Iterator;
-
 public final class FinalClassExample {
 
 	private final int id;
@@ -147,7 +138,7 @@ public final class FinalClassExample {
 		this.id=i;
 		this.name=n;
 		HashMap<String,String> tempMap=new HashMap<String,String>();
-		String key;
+		String key;n
 		Iterator<String> it = hm.keySet().iterator();
 		while(it.hasNext()){
 			key=it.next();

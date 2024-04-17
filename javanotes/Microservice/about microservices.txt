@@ -1,7 +1,7 @@
 What are microservices?
 
-Let’s start our discussion by setting a foundation of what microservices are. Microservices are a way of breaking 
-large software projects into loosely coupled modules, which communicate with each other through simple Application Programming Interfaces (APIs).
+Microservices are a way of breaking large software projects into loosely coupled modules, 
+which communicate with each other through simple Application Programming Interfaces (APIs).
 
 Microservices have become increasingly popular over the past few years. They are an example of the modular architectural style, 
 based on the philosophy of breaking large software projects into smaller, independent, and loosely coupled parts, which has 
@@ -9,8 +9,7 @@ gained prominence among developers for its dynamic and agile qualities in API ma
 
 Simply stated, microservices are really nothing more than another architectural solution for designing complex – mostly web-based – 
 applications. Microservices have gained prominence as an evolution from SOA (Service Oriented Architecture), an approach that was 
-designed to overcome the disadvantages of traditional monolithic architectures. In this blog post, we’ll explore the evolution of 
-development from monolithic architectures toward microservices and its underlying justifications, as well as the pros and cons of microservices.
+designed to overcome the disadvantages of traditional monolithic architectures.
 
 The history of microservices
 Let’s start with a simple example: Suppose I need to build a classic web application using Java. The first thing I will do is design
@@ -21,9 +20,6 @@ Let’s start with a simple example: Suppose I need to build a classic web appli
 To run the entire application, I will create either a EAR or WAR package and deploy it on an application server 
 (like JBoss, Tomcat, or WebLogic). Because I have packaged everything as an EAR/WAR, my application becomes 
 monolithic in nature, which means that even though we have separate and distinguishable components, all are packaged together.
-
-You may already be familiar with the characteristics of monolithic applications depending on your development experience. 
-However, this example also stands to illustrate some of the challenges developers and architects face with this kind of design.
 
 Here are the flaws:
 
@@ -41,9 +37,6 @@ Monolithic architecture impacts both the development and application deployment 
 important that developers be able to break their applications down into smaller components. Because everything in the monolithic approach 
 is tied together, developers cannot work independently to develop or deploy their own modules and must remain totally dependent on others, 
 increasing overall development time.
-With these thoughts in mind, let’s explore the value of microservices and how they can be used to provide the flexibility that’s lacking 
-in monolithic architectures.
-
 
 Advantages of microservices
 ==================================

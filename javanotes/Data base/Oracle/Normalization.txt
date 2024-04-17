@@ -1,6 +1,53 @@
 Normalization
 ======================
+Youtube link:
+https://www.youtube.com/watch?v=5GDTIUVlHB8&t=64s
+
+Normalization in DBMS (Database Management Systems) is the process of organizing a database to reduce 
+redundancy and dependency. The main goal of normalization is to design a database schema in such a way 
+that it avoids anomalies during data insertion, deletion, and update operations. Anomalies can include 
+things like data redundancy, update anomalies, and insertion anomalies.
 Here are the most commonly used normal forms:
+
+Closure method: with the help of this we can identifies the candidate key, super key, non-prime key, prime key
+
+How to Find Candidate Keys and Super Keys Using Attribute Closure?
+Table {STUD_NO. STUD_NAME, STUD_PHONE. STUD_STATE, STUD_COUNTRY. STUD_AGE}
+
+a. We know that STUD_NO is unique for each student. So 
+STUD_NO->STUD_NAME, STUD_NO->STUD_PHONE, STUD_NO->STUD_STATE, 
+
+b. STUD_NO->STUD_COUNTRY and STUD_NO -> STUD_AGE all will be true.
+STUD_STATE->STUD_COUNTRY will be true as if two records have same STUD_STATE, they will have same STUD_COUNTRY as well.
+
+Closure method:
+{ STUD_NO->STUD_NAME, STUD_NO->STUD_PHONE, STUD_NO->STUD_STATE, STUD_NO->STUD_COUNTRY, 
+  STUD_NO -> STUD_AGE, STUD_STATE->STUD_COUNTRY }
+  
+(STUD_NO, STUD_NAME)+ = {STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_COUNTRY, STUD_AGE} 
+
+(STUD_NO)+ = {STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_COUNTRY, STUD_AGE} 
+
+(STUD_NO, STUD_NAME) will be super key but not candidate key because its subset (STUD_NO)+ is equal to all 
+attributes of the relation. So, STUD_NO will be a candidate key. 
+
+candidate key: It is the minimal key which can deteremines all other key in an table.
+We can have 1 or more no of candidate key in an table which can uniquely identify the rows.
+all candidate key are super key;
+
+Super keys:
+a super key is a set of attributes or columns that uniquely identifies each tuple (row) in a table. 
+In other words, it's a combination of one or more attributes that can uniquely identify a record in a table.
+all super key are not candidate key;
+
+Prime and Non-Prime Attributes
+Attributes which are parts of any candidate key of relation are called as prime attribute, 
+others are non-prime attributes. For Example, STUD_NO in STUDENT relation is prime attribute, others are non-prime attribute.
+
+Functional dependency: It is method which describes the realtionship among attribute among the table;
+A -> B (A determines B), B -> C(B determines C) , C -> D (C determines D)
+with the help of this we can identifies the candidate key, super key, non-prime key, prime key
+
 
 First normal form(1NF)
 Second normal form(2NF)
@@ -28,8 +75,7 @@ emp_id	emp_name	emp_address	emp_mobile
 A table is said to be in 2NF if both the following conditions hold:
 
 Table is in 1NF (First normal form)
-No non-prime attribute is dependent on the proper subset of any candidate key of table.
-An attribute that is not part of any candidate key is known as non-prime attribute.
+All the non-prime attribute is fully functional dependent on the proper subset of any candidate key of table.
 
 Example: Suppose a school wants to store the data of teachers and the subjects they teach.
  They create a table that looks like this: Since a teacher can teach more than one subjects, 
@@ -74,15 +120,9 @@ Now the tables comply with Second normal form (2NF).
 A table design is said to be in 3NF if both the following conditions hold:
 
 Table must be in 2NF
-Transitive functional dependency of non-prime attribute on any super key should be removed.
-An attribute that is not part of any candidate key is known as non-prime attribute.
-
-In other words 3NF can be explained like this: A table is in 3NF if it is in 2NF and for 
-each functional dependency X-> Y at least one of the following conditions hold:
-
-X is a super key of table
-Y is a prime attribute of table
-An attribute that is a part of one of the candidate keys is known as prime attribute.
+There is should be no Transitive functional dependency in that table.
+table(A,B,C
+A -> B , B -> C , Here A deteremines B and B deteremines C so C can be determined by A.
 
 Example: Suppose a company wants to store the complete address of each employee, they create a 
 table named employee_details that looks like this:

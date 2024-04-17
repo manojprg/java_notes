@@ -1,11 +1,10 @@
 ﻿Spring Annotation
--------------------------
-
-1--> RequestMapping(value="\nameOfMethod",method=RequestMethod.GET)   		------    Path("\nameOfMethod")
+------------------
+1--> RequestMapping(value="\nameOfMethod",method=RequestMethod.GET)   
 		
-     Package name- org.springframework.web.bind.annotation.RequestMapping			  javax.ws.rs.Path
+     Package name- org.springframework.web.bind.annotation.RequestMapping
 
-2--> PathVariable("word") String word						------	  PathParam("word") String word								
+2--> PathVariable("word") String word												
 
 	Package name- org.springframework.web.bind.annotation.PathVariable
 	
@@ -13,9 +12,7 @@
 	RequestMethod.GET)
      public String getLogin(@PathVariable("userId") String userId,
          @PathVariable("roleId") String roleId){
-         System.out.println("User Id : " + userId);
-         System.out.println("Role Id : " + roleId);
-         return "hello";
+
      }
 	 
 --@PathVariable for accepting the customized or more dynamic parameters in 
@@ -48,16 +45,35 @@ The required=false denotes that query parameter can be optional but the URL must
 
 ---------------------------------------------------------------------------------------------------------------
 
-Difference between @PathVariable and @RequestParam in Spring
+Difference between @PathVariable and @RequestParam in Spring?
+--------------------------------------------------------------
+In Spring Framework, @PathVariable and @RequestParam are both annotations used for handling parameters 
+in a web request, but they serve different purposes:
 
-1) The @RequestParam is used to extract query parameters while @PathVariable is used to extract data right from the URI.
+1. @PathVariable:
+   - @PathVariable is used to extract values from the URI template in the URL.
+   - It binds the method parameter to a URI template variable (part of the URL).
+   - Typically used when you want to retrieve data based on a part of the URL path.
+   - For example, in the URL `/users/{id}`, if you want to extract the `id`, you would use `@PathVariable("id")`.
 
-2) @RequestParam is more useful on a traditional web application where data is mostly passed in the query abatements while 
-@PathVariable is more suitable for RESTful web services where URL contains values e.g. http://localhost:8080/book/9783827319333, 
-here data, which is ISBN number is part of URI.
+Example:
+@GetMapping("/users/{id}")
+public ResponseEntity<User> getUserById(@PathVariable("id") Long id) {
+    // Method logic to fetch user by id
+}
 
-3) @RequestParam annotation can specify default values if query parameter is not present or empty by using a defaultValue attribute,
- provided required attribute is false.
+2.@RequestParam:
+   - @RequestParam is used to extract query parameters from the request URL.
+   - It binds the method parameter to a query parameter in the URL.
+   - Typically used when you want to pass optional parameters to a request.
+   - Query parameters are part of the URL following the `?` symbol and are in the form `key=value`.
+   
+Example:
+@GetMapping("/users")
+public ResponseEntity<List<User>> getUsersByRole(@RequestParam("role") String role) {
+    // Method logic to fetch users by role
+}
 
-4) Spring MVC allows you to use multiple @PathVariable annotations in the same method, provided, no more than 
-one argument has the same pattern.
+So, in summary:
+- Use `@PathVariable` when you want to extract values from the URI template.
+- Use `@RequestParam` when you want to extract query parameters from the request URL.

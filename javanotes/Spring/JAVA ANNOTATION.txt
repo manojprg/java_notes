@@ -7,13 +7,6 @@ Annotations in java provide information about the code. Java annotations have no
 how to write custom annotation
 annotations usage and how to parse annotations using reflection
 
-1 Java Annotations
-1.1 Java Custom Annotation
-1.2 Meta annotations in java
-1.3 Built-in annotations in Java
-1.4 Java Annotations Example
-1.5 Java Annotations Parsing
-
 Java Annotation is metadata about the program embedded in the program itself. It can be parsed by the annotation parsing tool or by compiler. 
 We can also specify annotation availability to either compile time only or till runtime also.
 
@@ -131,55 +124,8 @@ We will use Reflection to parse java annotations from a class. Please note that 
 Policy should be RUNTIME otherwise it’s information will not be available at runtime and we wont be 
 able to fetch any data from it.
 
-package com.journaldev.annotations;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 
-public class AnnotationParsing {
-
-	public static void main(String[] args) {
-		try {
-			for (Method method : AnnotationParsing.class.getClassLoader()
-					.loadClass(("com.journaldev.annotations.AnnotationExample")).getMethods()) {
-				// checks if MethodInfo annotation is present for the method
-				if (method.isAnnotationPresent(com.journaldev.annotations.MethodInfo.class)) {
-					try {
-						// iterates all the annotations available in the method
-						for (Annotation anno : method.getDeclaredAnnotations()) {
-							System.out.println("Annotation in Method '" + method + "' : " + anno);
-						}
-						MethodInfo methodAnno = method.getAnnotation(MethodInfo.class);
-						if (methodAnno.revision() == 1) {
-							System.out.println("Method with revision no 1 = " + method);
-						}
-
-					} catch (Throwable ex) {
-						ex.printStackTrace();
-					}
-				}
-			}
-		} catch (SecurityException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
-}
-Output of the above program is:
-
-Annotation in Method 'public java.lang.String com.journaldev.annotations.AnnotationExample.toString()' : 
-@com.journaldev.annotations.MethodInfo(author=Pankaj, revision=1, comments=Main method, date=Nov 17 2012)
-Method with revision no 1 = public java.lang.String com.journaldev.annotations.AnnotationExample.toString()
-Annotation in Method 'public static void com.journaldev.annotations.AnnotationExample.oldMethod()' : 
-@java.lang.Deprecated()
-Annotation in Method 'public static void com.journaldev.annotations.AnnotationExample.oldMethod()' : 
-@com.journaldev.annotations.MethodInfo(author=Pankaj, revision=1, comments=deprecated method, date=Nov 17 2012)
-Method with revision no 1 = public static void com.journaldev.annotations.AnnotationExample.oldMethod()
-Annotation in Method 'public static void com.journaldev.annotations.AnnotationExample.genericsTest() 
-throws java.io.FileNotFoundException' : @com.journaldev.annotations.MethodInfo(author=Pankaj, revision=10, 
-comments=Main method, date=Nov 17 2012)
-Reflection API is very powerful and used widely in Java, J2EE frameworks like Spring, Hibernate, JUnit, 
-check out Reflection in Java.
 
 
  

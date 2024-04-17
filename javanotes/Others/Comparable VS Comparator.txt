@@ -1,16 +1,22 @@
 ﻿Comparable VS Comparator
 
-Difference between Comparable and Comparator
-
 Comparable and Comparator both are interfaces and can be used to sort collection elements.
 
 Comparable	Comparator
 1) Comparable provides single sorting sequence. In other words, we can sort the collection on the basis of single element such as id or name or price etc.	
 Comparator provides multiple sorting sequence. In other words, we can sort the collection on the basis of multiple elements such as id, name and price etc.
-2) Comparable affects the original class i.e. actual class is modified.	Comparator doesn't affect the original class i.e. actual class is not modified.
-3) Comparable provides compareTo() method to sort elements.	Comparator provides compare() method to sort elements.
-4) Comparable is found in java.lang package.	Comparator is found in java.util package.
-5) We can sort the list elements of Comparable type by Collections.sort(List) method.	We can sort the list elements of Comparator type by Collections.
+
+2) Comparable affects the original class i.e. actual class is modified.	
+Comparator doesn't affect the original class i.e. actual class is not modified.
+
+3) Comparable provides compareTo() method to sort elements.	
+Comparator provides compare() method to sort elements.
+
+4) Comparable is found in java.lang package.	
+Comparator is found in java.util package.
+
+5) We can sort the list elements of Comparable type by Collections.sort(List) method.	
+We can sort the list elements of Comparator type by Collections.
 sort(List,Comparator) method.
 
 
@@ -130,12 +136,6 @@ By changing the return value in inside compare method you can sort in any order 
  
  -----------
  
- Comparator
-Using Comparable Interface
-
-A comparable object is capable of comparing itself with another object. The class itself must implements the java.lang.Comparable interface 
-to compare its instances.
-
 Consider a Movie class that has members like, rating, name, year. Suppose we wish to sort a list of Movies based on year of release. We can implement
  the Comparable interface with the Movie class, and we override the method compareTo() of Comparable interface.
 
@@ -200,5 +200,5 @@ Star Wars 8.7 1977
 Empire Strikes Back 8.8 1980
 Return of the Jedi 8.4 1983
 Force Awakens 8.3 2015
-Now, suppose we want sort movies by their rating and names also. When we make a collection element comparable(by having it implement Comparable), we get only one 
-chance to implement the compareTo() method. The solution is using Comparator.
+Now, suppose we want sort movies by their rating and names also. When we make a collection element comparable(by having it implement Comparable), 
+we get only one chance to implement the compareTo() method. The solution is using Comparator.

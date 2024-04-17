@@ -1,0 +1,5 @@
+Consistent hashing:  https://www.youtube.com/watch?v=oKAU6LaYFhw
+
+reference: https://www.toptal.com/big-data/consistent-hashing
+
+normalization : https://www.youtube.com/watch?v=5GDTIUVlHB8&t=64

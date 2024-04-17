@@ -1,6 +1,10 @@
 SQL Query:
 ------------
 
+To find the 2nd heighest salary:
+
+select max(sal) from emp  where sal not in (select max(sal) from emo)
+
 a. to find duplicates records:
 ==============================================
 
@@ -56,7 +60,8 @@ d. what is the query to find 10th highest salary from employee table?
 
 approach 1-
  select name ,salary from employee e1 where 10-1 = (select count(distinct salary) from employee e2 where e2.salary > e1.salary);\
- Generallize query : select name ,salary from employee e1 where N-1 = (select count(distinct salary) from employee e2 where e2.salary > e1.salary);
+ Generallize query : select name ,salary from employee e1 where N-1 = (select count(distinct salary) 
+ from employee e2 where e2.salary > e1.salary);
                      Note : where n is number of Nth highest salary.
 
 approach 2-					 

@@ -3,38 +3,30 @@
 What Is Cloning?
 
 Cloning is a process of creating an exact copy of an existing object in the memory. In java, clone() method of java.lang.Object class is used for
- cloning process. This method creates an exact copy of an object on which it is called through field-by-field assignment and returns the reference
- of that object. Not all the objects in java are eligible for cloning process. The objects which implement Cloneable interface are only eligible 
-for cloning process. Cloneable interface is a marker interface which is used to provide the marker to cloning process. Click here to see more 
-info on clone() method in java.
+cloning process. This method creates an exact copy of an object on which it is called through field-by-field assignment and returns the reference
+of that object. Not all the objects in java are eligible for cloning process. The objects which implement Cloneable interface are only eligible 
+for cloning process. Cloneable interface is a marker interface which is used to provide the marker to cloning process.
 
 Both shallow copy and deep copy are related to this cloning process. The default version of clone() method creates the shallow copy of an object. 
-To create the deep copy of an object, you have to override the clone() method. Let’s see how these shallow copy and deep copy work.
+To create the deep copy of an object, you have to override the clone() method.
 
 Shallow Copy In Java :
 
 The default version of clone() method creates the shallow copy of an object. The shallow copy of an object will have exact copy of all the
- fields of original object. If original object has any references to other objects as fields, then only references of those objects are copied
- into clone object, copy of those objects are not created. That means any changes made to those objects through clone object will be reflected 
-in original object or vice-versa. Shallow copy is not 100% disjoint from original object. Shallow copy is not 100% independent of original object.
-
-Below is the example which creates the shallow copy of an object ‘student1‘.
-
+fields of original object. If original object has any references to other objects as fields, then only references of those objects are copied
+into clone object, copy of those objects are not created. That means any changes made to those objects through clone object will be reflected 
+in original object or vice-versa. Shallow copy is not 100% disjoint from original object. Shallow copy is not 100% independent of original
+object.
 
 class Course
 {
     String subject1;
- 
     String subject2;
- 
     String subject3;
- 
     public Course(String sub1, String sub2, String sub3)
     {
         this.subject1 = sub1;
- 
         this.subject2 = sub2;
- 
         this.subject3 = sub3;
     }
 }
@@ -42,17 +34,13 @@ class Course
 class Student implements Cloneable
 {
     int id;
- 
     String name;
- 
     Course course;
  
     public Student(int id, String name, Course course)
     {
         this.id = id;
- 
         this.name = name;
- 
         this.course = course;
     }
  
@@ -69,15 +57,12 @@ public class ShallowCopyInJava
     public static void main(String[] args)
     {
         Course science = new Course("Physics", "Chemistry", "Biology");
- 
         Student student1 = new Student(111, "John", science);
- 
         Student student2 = null;
  
         try
         {
             //Creating a clone of student1 and assigning it to student2
- 
             student2 = (Student) student1.clone();
         }
         catch (CloneNotSupportedException e)
@@ -104,12 +89,6 @@ In the above example, ‘student1‘ is an object of ‘Student‘ class which h
  and ‘student2‘ will be pointing to same ‘Course‘ object. So, any changes made to this object through ‘student2‘ 
  will be reflected in ‘student1‘ or vice-versa.
 
-See the below picture for more clear understanding.
-
-
- 
-shallow copy vs deep copy in java
-
 Deep Copy In Java :
 
 Deep copy of an object will have exact copy of all the fields of original object just like shallow copy. But in additional,
@@ -122,17 +101,13 @@ To create a deep copy of an object, you have to override the clone() method as d
 class Course implements Cloneable
 {
     String subject1;
- 
     String subject2;
- 
     String subject3;
  
     public Course(String sub1, String sub2, String sub3)
     {
         this.subject1 = sub1;
- 
         this.subject2 = sub2;
- 
         this.subject3 = sub3;
     }
  
@@ -145,17 +120,13 @@ class Course implements Cloneable
 class Student implements Cloneable
 {
     int id;
- 
     String name;
- 
     Course course;
  
     public Student(int id, String name, Course course)
     {
         this.id = id;
- 
         this.name = name;
- 
         this.course = course;
     }
  
@@ -164,9 +135,7 @@ class Student implements Cloneable
     protected Object clone() throws CloneNotSupportedException
     {
         Student student = (Student) super.clone();
- 
         student.course = (Course) course.clone();
- 
         return student;
     }
 }
@@ -205,13 +174,6 @@ public class DeepCopyInJava
         System.out.println(student1.course.subject3);       //Output : Biology
     }
 }
-Below picture shows how deep copy of ‘student1’ is created.
-
-shallow copy vs deep copy in java
-
-Shallow Copy Vs Deep Copy In Java :
-
-Below is the list of differences between shallow copy and deep copy in java.
 
 Shallow Copy										                              Deep Copy
 Cloned Object and original object are not 100% disjoint.				           Cloned Object and original object are 100% disjoint.

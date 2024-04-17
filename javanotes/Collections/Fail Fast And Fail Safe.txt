@@ -2,7 +2,8 @@
 ---------------------------------------
 A system is called fail-fast if it is shut down immediately when an error occurred. These systems don’t carry on with the errors. 
 They immediately stop operating when a fault is occurred in the system. The errors in the fail-fast systems are immediately exposed.
- But, fail-safe systems are not like that. They don’t stop operating even when a fault is occurred in the system. 
+
+But, fail-safe systems are not like that. They don’t stop operating even when a fault is occurred in the system. 
 They continue the operation by hiding the errors. They don’t expose the errors immediately. They carry on with the errors. 
 
 Iterators in java give us the facility to traverse over the Collection objects. Iterators returned by the Collection are either fail-fast in 

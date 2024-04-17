@@ -43,6 +43,7 @@ public class MainClass {
         // anotherClass is already instantiated by the time you get here.
     }
 
+
 }
 Option 1: Directly allow AnotherClass to be created with a component scan.
 

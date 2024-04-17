@@ -1,29 +1,5 @@
 The Twelve-Factor App - The Goal
 -----------------------------------
-Before going into the specific points (factors), it is worth to understand what are they trying to achieve. 
-To cite directly from their introduction, one by one:
-
-Use declarative formats for setup automation, to minimize time and cost for new developers joining the project;
-
-An issue of tremendous importance when dealing with a large number of services. The more you have the more important this becomes. 
-I would argue that this is a key prerequisite for a successful microservices project.
-
-Have a clean contract with the underlying operating system, offering maximum portability between execution environments;
-
-Another important point, as with microservices we are trying to de-couple things, it is easier to do, when not relying on particular operating systems.
-
-Are suitable for deployment on modern cloud platforms, obviating the need for servers and systems administration;
-
-This one is not always necessary, as plenty of people on the enterprise side (particularly in finance) will have their own infrastructure. 
-It can be crucial for different users though (more devops oriented).
-
-Minimize divergence between development and production, enabling continuous deployment for maximum agility;
-
-It is always beneficial when development is as similar to production as possible- development and investigating bugs becomes easier and faster.
-
-And can scale up without significant changes to tooling, architecture, or development practices.
-
-Scaling is often one of the main reasons why microservices are chosen.
 
 Just by looking at the goals, we can get a sense that having this would make development easier and more enjoyable. This is the way we 
 should look at these factors. Not as a recipe how to design the full system, but rather a set of prerequisites that can get the project 
